@@ -27,6 +27,8 @@ txt = load_shakespeare()
 order = 4
 ngrams = {}
 
+# `ngrams` will have all the ngrams as keys and the possible next letters in a list as values
+
 for i in range(0, len(txt) - order + 1):
     gram = txt[i:i + order]
     if not gram in ngrams:
@@ -35,8 +37,7 @@ for i in range(0, len(txt) - order + 1):
         break
     ngrams[gram].append(txt[i + order])
 
-# `ngrams` has all the ngrams and the possible next letters in the form of a table
-
+# Choose a random starting point to generate new text
 start_index = random.randint(0, len(txt) - 1)
 current_gram = txt[start_index:start_index + order]
 result = current_gram
